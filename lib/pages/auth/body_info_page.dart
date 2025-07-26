@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'widgets.dart';
+import 'package:inbazar_d55555/pages/auth/widgets.dart';
 
 class BodyInfoPage extends StatefulWidget {
   const BodyInfoPage({super.key});
@@ -20,18 +19,50 @@ class _BodyInfoPageState extends State<BodyInfoPage> {
     "Tana Tuzilishi", // ozgin(1), o'rta(2), semiz(3), sportchi(4)
   ];
   List<int> values = [0, 18, 180, 70, 42, 2, 2];
-
-  List<Widget> widgets = [
-    GenderSelect(),
-  ];
+  int current = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(child: GenderSelect()),
-        ],
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Expanded(
+                child: Builder(
+                  builder: (context) {
+                    if (current == 0) {
+                      return GenderSelect(
+                        value: values[0],
+                        onChanged: (res) {
+                          current++;
+                          values[0] = res;
+                          setState(() {});
+                        },
+                      );
+                    } else if (current == 1) {
+                      return AgeSelect(
+                        value: values[1],
+                        onChanged: (res) {
+                          current++;
+                          values[1] = res;
+                          setState(() {});
+                        },
+                        back: () {
+                          current--;
+                          setState(() {});
+                        },
+                      );
+                    } else {
+                      return SizedBox();
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
