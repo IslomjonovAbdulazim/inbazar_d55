@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:inbazar_d55555/pages/auth/body_info_page.dart';
 import 'package:inbazar_d55555/utils/colors.dart';
 import 'package:inbazar_d55555/utils/texts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+import '../../utils/buttons.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -53,7 +57,32 @@ class _AuthPageState extends State<AuthPage> {
                 "Telefon raqaminginzi kiriting",
                 style: TextStyles.title,
               ),
-              Row(),
+              SizedBox(height: 10),
+              TextField(
+                controller: controller,
+                focusNode: focus,
+                style: TextStyles.title,
+                inputFormatters: [mask],
+                onTapOutside: (value) => focus.unfocus(),
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: AppColors.cloudGray,
+                  hintText: "Telefon Raqam",
+                  hintStyle: TextStyles.title,
+                ),
+              ),
+              Spacer(),
+              Buttons.primary(
+                onPressed: () {
+                  Get.to(BodyInfoPage());
+                },
+                text: "Davom etish",
+              ),
             ],
           ),
         ),

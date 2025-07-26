@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
               minScaleFactor: 0.8,
               maxScaleFactor: 1.2,
             ),
+            boldText: false,
           ),
           child: child ?? SizedBox(),
         );
