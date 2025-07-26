@@ -36,8 +36,11 @@ class _BodyInfoPageState extends State<BodyInfoPage> {
                       return GenderSelect(
                         value: values[0],
                         onChanged: (res) {
-                          current++;
                           values[0] = res;
+                          setState(() {});
+                        },
+                        next: () {
+                          current++;
                           setState(() {});
                         },
                       );
@@ -45,12 +48,31 @@ class _BodyInfoPageState extends State<BodyInfoPage> {
                       return AgeSelect(
                         value: values[1],
                         onChanged: (res) {
-                          current++;
                           values[1] = res;
                           setState(() {});
                         },
                         back: () {
                           current--;
+                          setState(() {});
+                        },
+                        next: () {
+                          current++;
+                          setState(() {});
+                        },
+                      );
+                    } else if (current == 2) {
+                      return HeightSelect(
+                        value: values[2],
+                        onChanged: (res) {
+                          values[2] = res;
+                          setState(() {});
+                        },
+                        back: () {
+                          current--;
+                          setState(() {});
+                        },
+                        next: () {
+                          current++;
                           setState(() {});
                         },
                       );

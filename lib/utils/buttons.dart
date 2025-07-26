@@ -69,7 +69,7 @@ class Buttons {
       onPressed: onPressed,
       child: Text(
         text,
-        style: TextStyles.link,
+        style: TextStyles.title,
       ),
     );
   }

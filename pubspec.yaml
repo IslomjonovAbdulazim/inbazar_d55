@@ -19,7 +19,8 @@ dependencies:
   flutter_native_splash:
   google_fonts:
   carousel_slider:
-  mask_text_input_formatter: ^2.9.0
+  mask_text_input_formatter:
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
