@@ -21,6 +21,7 @@ dependencies:
   carousel_slider:
   mask_text_input_formatter:
   url_launcher:
+  http:
 
 dev_dependencies:
   flutter_test:
