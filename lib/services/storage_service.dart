@@ -7,13 +7,13 @@ class StorageService {
   static String token = "";
   static bool hasToken = false;
 
-  Future<void> init() async {
+  static Future<void> init() async {
     final db = await SharedPreferences.getInstance();
     token = db.getString("token") ?? "";
     hasToken = token.isNotEmpty;
   }
 
-  Future<void> saveToken(String value) async {
+  static Future<void> saveToken(String value) async {
     final db = await SharedPreferences.getInstance();
     await db.setString("token", value);
     token = value;
@@ -21,7 +21,7 @@ class StorageService {
     Get.offAll(HomePage());
   }
 
-  Future<void> deleteToken() async {
+  static Future<void> deleteToken() async {
     final db = await SharedPreferences.getInstance();
     await db.remove("token");
     token = "";

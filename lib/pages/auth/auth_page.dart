@@ -89,7 +89,7 @@ class _AuthPageState extends State<AuthPage> {
                 Buttons.primary(
                   onPressed: () {
                     if (key.currentState!.validate()) {
-                      Get.to(PhoneVerifyPage());
+                      Get.to(PhoneVerifyPage(tel: mask.getUnmaskedText()));
                     }
                   },
                   text: "Davom etish",
