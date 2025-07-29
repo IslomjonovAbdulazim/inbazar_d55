@@ -20,6 +20,10 @@ class AuthProvider {
       },
       body: body,
     );
-
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
