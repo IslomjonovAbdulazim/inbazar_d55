@@ -99,21 +99,23 @@ class _PhoneVerifyPageState extends State<PhoneVerifyPage> {
                   ],
                 ),
                 Spacer(),
-                Buttons.primary(
-                  onPressed: () async {
-                    if (mask.isFill()) {
-                      isLoading = true;
-                      setState(() {});
-                      await AuthProvider.verifyOtp(
-                        "+998${widget.tel}",
-                        mask.getUnmaskedText(),
-                      );
-                      isLoading = false;
-                      setState(() {});
-                    }
-                  },
-                  text: "Davom etish",
-                ),
+                isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : Buttons.primary(
+                        onPressed: () async {
+                          if (mask.isFill()) {
+                            isLoading = true;
+                            setState(() {});
+                            await AuthProvider.verifyOtp(
+                              "+998${widget.tel}",
+                              mask.getUnmaskedText(),
+                            );
+                            isLoading = false;
+                            setState(() {});
+                          }
+                        },
+                        text: "Davom etish",
+                      ),
               ],
             ),
           ),
