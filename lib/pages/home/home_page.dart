@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
+              crossAxisCount: 2,
             ),
             itemCount: mockProducts.length,
             itemBuilder: (context, index) {
