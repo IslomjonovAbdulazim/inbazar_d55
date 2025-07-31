@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:inbazar_d55555/models/mock_data.dart';
+import 'package:inbazar_d55555/models/product_model.dart';
 import 'package:inbazar_d55555/pages/home/profile_page.dart';
-import 'package:inbazar_d55555/utils/texts.dart';
+import 'package:inbazar_d55555/pages/home/widgets/product_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,14 +31,22 @@ class _HomePageState extends State<HomePage> {
           SizedBox(width: 8),
         ],
       ),
-      body: Center(
-        child: Text(
-          "HomePage",
-          style: TextStyles.headline1,
-        ),
+      body: ListView(
+        children: [
+          GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+            ),
+            itemCount: mockProducts.length,
+            itemBuilder: (context, index) {
+              final model = ProductModel.fromJson(mockProducts[index]);
+              return ProductWidget(model: model);
+            },
+          ),
+        ],
       ),
     );
   }
 }
-
-
