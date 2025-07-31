@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.symmetric(horizontal: 20),
           children: [
             SizedBox(
-              height: 50,
+              height: 55,
               child: ListView.builder(
                 itemCount: mockCategories.length,
                 scrollDirection: Axis.horizontal,
