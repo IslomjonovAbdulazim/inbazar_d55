@@ -10,29 +10,33 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(6),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Column(
-        children: [
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.network(
-                model.image,
+      child: Center(
+        child: Column(
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  model.image,
+                ),
               ),
             ),
-          ),
-          Text(
-            model.title,
-            style: TextStyles.title,
-          ),
-          Text(
-            "${model.price} so'm",
-            style: TextStyles.subtitle,
-          ),
-        ],
+            Text(
+              model.title,
+              style: TextStyles.title,
+              maxLines: 1,
+            ),
+            Text(
+              "${model.price} so'm",
+              style: TextStyles.subtitle,
+            ),
+          ],
+        ),
       ),
     );
   }

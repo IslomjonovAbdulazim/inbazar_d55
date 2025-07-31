@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
         actions: [
           CupertinoButton(
             onPressed: () {
@@ -66,11 +67,17 @@ class _HomePageState extends State<HomePage> {
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 10,
               ),
               itemCount: mockProducts.length,
               itemBuilder: (context, index) {
                 final model = ProductModel.fromJson(mockProducts[index]);
-                return ProductWidget(model: model);
+                return CupertinoButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () {},
+                  child: ProductWidget(model: model),
+                );
               },
             ),
           ],
