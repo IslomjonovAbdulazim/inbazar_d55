@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inbazar_d55555/models/mock_data.dart';
 import 'package:inbazar_d55555/models/product_model.dart';
+import 'package:inbazar_d55555/pages/home/category_page.dart';
 import 'package:inbazar_d55555/pages/home/profile_page.dart';
 import 'package:inbazar_d55555/pages/home/widgets/product_widget.dart';
 import 'package:inbazar_d55555/utils/texts.dart';
@@ -51,7 +52,9 @@ class _HomePageState extends State<HomePage> {
                     child: CupertinoButton(
                       color: Colors.grey.shade100,
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(CategoryPage(category: model));
+                      },
                       child: Text(
                         model.title,
                         style: TextStyles.title,
